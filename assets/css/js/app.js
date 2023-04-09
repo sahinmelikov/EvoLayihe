@@ -2,6 +2,11 @@ const cartFilm=document.querySelector('.cart-film')
 const mainFilm=document.querySelector('.main-film')
 const cartCarusel=document.querySelector('.cart-carusel')
 const mainFilmName=document.querySelector('.main-film-name')
+const NavIcon=document.querySelector('.bi-justify')
+const navPosition=document.querySelector('.position-nav')
+NavIcon.addEventListener('click',function () {
+    navPosition.classList.toggle('d-none')
+})
 fetch("https://api.tvmaze.com/shows").then(data=>data.json())
 .then(arr=>{
 for (let i = 0; i < arr.length; i++) {
@@ -79,8 +84,11 @@ for (let i = 0; i <32; i++) {
 const inputt=document.querySelector('.inpp')
 const btnInp =document.querySelector('.btn-inp')
 btnInp.addEventListener('click',function () {
+    
 
     axios.get("https://api.tvmaze.com/search/shows?q="+inputt.value).then(arr22=>{
+    
+    
 mainFilm.innerHTML=""
 
 arr22.data.forEach(element => {
